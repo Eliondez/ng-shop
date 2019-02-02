@@ -17,6 +17,10 @@
       display: flex;
       flex-direction: column;
     }
+    .container-fluid .content {
+      position: relative;
+      left: 240px;
+    }
     #top_row {
       height: 50px;
       background-color: #ccc;
@@ -27,6 +31,77 @@
     .data-block .col-sm {
       border: 1ps solid black;
       height: 100px;
+    }
+    /* Navbar */
+    .navbar {
+      position: relative;
+      left: 240px;
+      height: 70px;
+    }
+    /* Sidebar */
+    .sidebar {
+    background-color: #3a4651;
+    width: 240px;
+    padding-bottom: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    -webkit-transition: left 0.3s ease;
+    transition: left 0.3s ease;
+    z-index: 20;
+    }
+    .sidebar-header .sidebar-header-text {
+    color: #fff;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    line-height: 70px;
+    font-size: 16px;
+    }
+    .sidebar .sidebar-container {
+    position: absolute;
+    top: 0;
+    bottom: 51px;
+    width: 100%;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    }
+    .sidebar .sidebar-menu {
+    font-size: 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+    .sidebar .sidebar-menu ul {
+      padding: 0;
+      height: 0px;
+      overflow: hidden;
+      }
+    .sidebar .sidebar-menu > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 15px;
+    cursor: pointer;
+    margin-top: -1px;
+    border-top: 1px solid #313a44; 
+    border-bottom: 1px solid #313a44;
+    }
+    .sidebar .sidebar-menu li.active ul {
+      height: auto;
+    }
+    .sidebar .sidebar-menu li a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      display: block;
+    }
+    .sidebar .sidebar-menu li a:hover,
+    .sidebar .sidebar-menu li.open > a,
+    .sidebar .sidebar-menu li.open a:hover {
+      color: #ffffff;
+      background-color: #2d363f;
     }
   </style>
 </head>
@@ -40,18 +115,31 @@
       </form>
     </div>
   </nav>
-  <div class="container-fluid" style="flex-grow: 1">
-    <div class="row content">
-      <div class="col-sm-3">
-        <div class="list-group">
-          {% for item in left_buttons %}
-          <a href="/admin/{{ item.href }}" class="list-group-item list-group-item-action">
-            <i style="margin-right: 10px" class="fas {{item.icon}}"></i>{{ item.name }}
-          </a>
-          {% endfor %}
+
+  <aside class="sidebar">
+    <div class="sidebar-container">
+      <div class="sidebar-header">
+        <div class="sidebar-header-text">
+          Admin Panel
         </div>
       </div>
-      <div class="col-sm-9 data-block" style="border: 1px solid black">
+      <nav class="menu">
+        <ul class="sidebar-menu menuitem" id="sidebar-menu">
+            {% for item in left_buttons %}
+            <li>
+              <a href="/admin/{{ item.href }}" aria-expanded="false">
+                <i style="margin-right: 10px" class="fas {{item.icon}}"></i>{{ item.name }}
+              </a>
+            </li>
+            {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="container-fluid content" style="flex-grow: 1">
+    <div class="row content">
+      <div class="col-sm-12 data-block" style="border: 1px solid black">
         <div class="row">
           <div class="col-sm"></div>
           <div class="col-sm"></div>
