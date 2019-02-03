@@ -1,155 +1,45 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'main/bootstrap/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <script src="{% static 'main/jquery-3.3.1.slim.min.js' %}"></script>
-  <script src="{% static 'main/popper.min.js' %}"></script>
-  <script src="{% static 'main/bootstrap/js/bootstrap.min.js' %}"></script>
-  <style>
-    body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    .container-fluid .content {
-      position: relative;
-      left: 240px;
-    }
-    #top_row {
-      height: 50px;
-      background-color: #ccc;
-    }
-    #content {
-      background-color: #f00;
-    }
-    .data-block .col-sm {
-      border: 1ps solid black;
-      height: 100px;
-    }
-    /* Navbar */
-    .navbar {
-      position: relative;
-      left: 240px;
-      height: 70px;
-    }
-    /* Sidebar */
-    .sidebar {
-    background-color: #3a4651;
-    width: 240px;
-    padding-bottom: 60px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    -webkit-transition: left 0.3s ease;
-    transition: left 0.3s ease;
-    z-index: 20;
-    }
-    .sidebar-header .sidebar-header-text {
-    color: #fff;
-    text-align: center;
-    padding-left: 25px;
-    padding-right: 25px;
-    line-height: 70px;
-    font-size: 16px;
-    }
-    .sidebar .sidebar-container {
-    position: absolute;
-    top: 0;
-    bottom: 51px;
-    width: 100%;
-    left: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    }
-    .sidebar .sidebar-menu {
-    font-size: 14px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    }
-    .sidebar .sidebar-menu ul {
-      padding: 0;
-      height: 0px;
-      overflow: hidden;
-      }
-    .sidebar .sidebar-menu > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 15px;
-    cursor: pointer;
-    margin-top: -1px;
-    border-top: 1px solid #313a44; 
-    border-bottom: 1px solid #313a44;
-    }
-    .sidebar .sidebar-menu li.active ul {
-      height: auto;
-    }
-    .sidebar .sidebar-menu li a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      display: block;
-    }
-    .sidebar .sidebar-menu li a:hover,
-    .sidebar .sidebar-menu li.open > a,
-    .sidebar .sidebar-menu li.open a:hover {
-      color: #ffffff;
-      background-color: #2d363f;
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">LekusuShop</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
-  <aside class="sidebar">
-    <div class="sidebar-container">
-      <div class="sidebar-header">
-        <div class="sidebar-header-text">
-          Admin Panel
-        </div>
+{% extends "main/base.html" %}
+{% block content %}
+  <div id="main-cont">
+    <div id="sider-cont">
+      <div class="sider-head">Lekusu</div>
+      <div class="nav-head">
+          <i class="fas fa-bars"></i>NAVIGATION
       </div>
-      <nav class="menu">
-        <ul class="sidebar-menu menuitem" id="sidebar-menu">
-            {% for item in left_buttons %}
-            <li>
-              <a href="/admin/{{ item.href }}" aria-expanded="false">
-                <i style="margin-right: 10px" class="fas {{item.icon}}"></i>{{ item.name }}
-              </a>
-            </li>
-            {% endfor %}
-        </ul>
-      </nav>
+      <ul>
+        <li>
+          <a href="#">
+            <i class="fas fa-tags"></i>
+            Catalog
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-tv"></i>
+            Design
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-user"></i>
+            Customers
+          </a>
+          </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-cog"></i>
+            System
+          </a>
+        </li>
+      </ul>
     </div>
-  </aside>
-
-  <div class="container-fluid content" style="flex-grow: 1">
-    <div class="row content">
-      <div class="col-sm-12 data-block" style="border: 1px solid black">
-        <div class="row">
-          <div class="col-sm"></div>
-          <div class="col-sm"></div>
-        </div>
-        <div class="row">
-          <div class="col-sm"></div>
-          <div class="col-sm"></div>
-        </div>
+    <div id="content-cont">
+      <div id="header"></div>
+      <div id="middle">
+      </div>
+      <div id="footer">
+        Lekusu Inc.
       </div>
     </div>
   </div>
-</body>
-</html>
+{% endblock %}

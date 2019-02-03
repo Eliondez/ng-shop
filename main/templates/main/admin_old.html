@@ -1,0 +1,48 @@
+{% extends "main/base.html" %}
+{% block content %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">LekusuShop</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <aside class="sidebar">
+    <div class="sidebar-container">
+      <div class="sidebar-header">
+        <div class="sidebar-header-text">
+          Admin Panel
+        </div>
+      </div>
+      <nav class="menu">
+        <ul class="sidebar-menu menuitem" id="sidebar-menu">
+            {% for item in left_buttons %}
+            <li>
+              <a href="/admin/{{ item.href }}" aria-expanded="false">
+                <i style="margin-right: 10px" class="fas {{item.icon}}"></i>{{ item.name }}
+              </a>
+            </li>
+            {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="container-fluid content" style="flex-grow: 1">
+    <div class="row content">
+      <div class="col-sm-12 data-block" style="border: 1px solid black">
+        <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

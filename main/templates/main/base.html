@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'main/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/fonts/font-all.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+  <script src="{% static 'main/jquery-3.3.1.slim.min.js' %}"></script>
+  <script src="{% static 'main/popper.min.js' %}"></script>
+  <script src="{% static 'main/bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
