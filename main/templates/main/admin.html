@@ -63,8 +63,9 @@
     </div>
   </div>
   <script>
-    $('#sider-cont ul li>a').on('click', function(e) {
-      console.log(e);
+    $('#sider-cont>ul>li>a').on('click', function(e) {
+      // console.log(e);
+      $(e.currentTarget).parent().toggleClass('open');
     })
   </script>
 {% endblock %}

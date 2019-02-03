@@ -91,6 +91,14 @@
   align-items: baseline;
 }
 
+#sider-cont li ul {
+  display: none;
+}
+
+#sider-cont li.open ul {
+  display: block;
+}
+
 #sider-cont li ul li a span {
   transition: all .3s ease;
 }
@@ -99,6 +107,6 @@
   padding-left: 5px;
 }
 
-#sider-cont .fa-chevron-right{
+#sider-cont li.open .fa-chevron-right{
   transform: rotate(90deg);
 }
