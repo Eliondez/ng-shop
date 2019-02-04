@@ -64,13 +64,16 @@
   padding: 0;
 }
 
+#sider-cont a {
+  text-decoration: none;
+}
+
 #sider-cont ul li a{
   color: #b3cbdd;
   padding: 10px;
   display: block;
   font-size: 13px;
   border-bottom: 1px solid #2b3642;
-  text-decoration: none;
   display: flex;
   align-items: baseline;
 }
